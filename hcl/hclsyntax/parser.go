@@ -875,7 +875,7 @@ func (p *parser) parseExpressionTerm() (Expression, hcl.Diagnostics) {
 			diags = append(diags, &hcl.Diagnostic{
 				Severity: hcl.DiagError,
 				Summary:  "Invalid expression",
-				Detail:   "Expected the start of an expression, but found an invalid expression token.",
+				Detail:   fmt.Sprintf("Expected the start of an expression, but found an invalid expression token (%s).", start.Bytes),
 				Subject:  &start.Range,
 			})
 		}
